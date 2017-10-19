@@ -1,8 +1,8 @@
-var Index = require('../');
-var assert = require('assert');
+const Index = require('../');
+const assert = require('assert');
 
 function getIndex() {
-    var index = new Index();
+  const index = new Index();
     index.addDocument('asdf', {
         field1: "asdf qwerty rock",
         field2: "qwerty asdf"
@@ -20,14 +20,14 @@ function getIndex() {
 
 describe("Indexing asdf", function() {
     it("should not result in an error", function() {
-        var index = getIndex();
+      const index = getIndex();
     });
 });
 
 describe("Searching for 'qwerty'", function() {
     it("should return correct search results", function() {
-        var index = getIndex();
-        var results = index.query('qwerty');
+      const index = getIndex();
+      const results = index.query('qwerty');
         assert(results.length === 2, "Search results are not the right size");
         assert(results[0].key === 'asdf', "First result is not right");
         assert(results[1].key === 'lol', "Second result is not right");
